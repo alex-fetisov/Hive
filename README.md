@@ -1,9 +1,7 @@
 # Hive
-Notebook
 
-A1_T1_17May-2.ipynb - gives job number error only
+Jupyter Notebooks for the Coursera course "Big Data Analysis: Hive, Spark SQL, DataFrames and GraphFrames".
 
 add before running the first time
 CREATE DATABASE demodb LOCATION '/user/jovyan/af_store';
-
-Try to run query 3 with full output AND add query 4 with just one line
+and remove before submission.
