@@ -81,3 +81,24 @@ Lines from 'posts'
     4071	2	2008-08-06T22:29:57.073	525	4004	6	NULL	NULL	2008	2008-08
     4395	2	2008-08-07T04:47:45.830	60	4392	6	NULL	NULL	2008	2008-08
     4403	2	2008-08-07T04:54:27.937	389	4371	30	NULL	NULL	2008	2008-08
+
+
+
+    with q1 as ( select key from src where key = '5')
+    select *
+    from q1;
+
+    -- from style
+    with q1 as (select * from src where key= '5')
+    from q1
+    select *;
+
+    -- chaining CTEs
+    with q1 as ( select key from q2 where key = '5'),
+    q2 as ( select key from src where key = '5')
+    select * from (select key from q1) a;
+
+    -- union example
+    with q1 as (select * from src where key= '5'),
+    q2 as (select * from src s2 where key = '4')
+    select * from q1 union all select * from q2;
