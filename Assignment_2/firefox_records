@@ -1,4 +1,20 @@
-    
+    SELECT year, count(*)
+    FROM posts
+    LATERAL VIEW explode(tags) lateral_table AS tag
+    WHERE tag = 'firefox' AND post_type_id = '1'
+    GROUP BY year;
+
+2008	6
+2009	14
+2010	23
+2011	26
+2012	58
+2013	47
+2014	54
+2015	44
+2016	35
+
+
     SELECT id, tag, year, post_type_id
     FROM posts
     LATERAL VIEW explode(tags) lateral_table AS tag
