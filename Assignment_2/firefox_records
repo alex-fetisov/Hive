@@ -3,6 +3,8 @@
     FROM posts
     LATERAL VIEW explode(tags) lateral_table AS tag
     WHERE tag = 'firefox';
+    
+307 rows in total
 
 69602	firefox	2008	1
 94767	firefox	2008	1
