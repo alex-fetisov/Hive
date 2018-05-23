@@ -1,4 +1,20 @@
-    SELECT year, count(*)
+SELECT year, tag, count(*) as popularity_tag, RANK() OVER (PARTITION BY year ORDER BY tag) as rank_t
+        FROM posts
+        LATERAL VIEW explode(tags) lateral_table AS tag
+        WHERE tag = 'firefox' AND post_type_id = '1'
+        GROUP BY year, tag;
+
+2008	firefox	6	1
+2009	firefox	14	1
+2010	firefox	23	1
+2011	firefox	26	1
+2012	firefox	58	1
+2013	firefox	47	1
+2014	firefox	54	1
+2015	firefox	44	1
+2016	firefox	35	1
+
+SELECT year, count(*)
     FROM posts
     LATERAL VIEW explode(tags) lateral_table AS tag
     WHERE tag = 'firefox' AND post_type_id = '1'
